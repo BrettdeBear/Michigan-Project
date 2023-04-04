@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import React from "react";
+// import { Switch, Route } from "react-router-dom";
 
 function App() {
-  // Code goes here!
+  return(
+  <h1>Yahoo!</h1>
+  )
 }
 
 export default App;
