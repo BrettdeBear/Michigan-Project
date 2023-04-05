@@ -6,8 +6,8 @@ function Nav({updateUser}) {
     const history = useHistory()
 
     const handleLogout = () => {
-        fetch('/logout', {
-            method: 'DELETE'
+        fetch("/logout", {
+            method: 'DELETE',
         })
         .then(response => {
             if(response.ok){
@@ -20,6 +20,11 @@ function Nav({updateUser}) {
     return (
         <nav className="navigation">
             <ul>
+                <li>
+                    <NavLink exact to="/">
+                        Home
+                    </NavLink>
+                </li>
                 <li>
                     <NavLink exact to="/authentication">
                         Login/Sign Up

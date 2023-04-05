@@ -11,7 +11,7 @@ function Authentication({updateUser}) {
     const handleClick = () => setSignUp((signUp) => !signUp)
 
     const formSchema = yup.object().shape({
-        username: yup.string().required("Please enter a username!"),
+        name: yup.string().required("Please enter a username!"),
         email: yup.string().email()
     })
 
@@ -24,10 +24,12 @@ function Authentication({updateUser}) {
         validationSchema: formSchema,
         onSubmit: (values) => {
             console.log(values)
-            fetch(signUp ? '/signup': '/login', {
+            fetch(signUp ? '/signup' : '/login', {
                 method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(values)
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
             })
             .then(response => {
                 if(response.ok){
@@ -45,7 +47,7 @@ function Authentication({updateUser}) {
 
 
     return(
-        <div class='loginform'>
+        <div className='loginform'>
             <h2 style={{color: 'red'}}>{formik.errors.name}</h2>
             {error&& <h2 style={{color: 'red'}}>{error}</h2>}
             <h2>Please Log in or Sign up!</h2>

@@ -14,23 +14,6 @@ from models import User
 
 # Views go here!
 
-# class Users(Resource):
-#     def post(self):
-#         data = request.get_json()
-#         new_user = User(
-#             name=data['name'],
-#             email=data['email']
-#         )
-#         db.session.add(new_user)
-#         db.session.commit()
-#         session['user_id'] = new_user.id
-#         response = make_response(
-#             new_user.to_dict(),
-#             201
-#         )
-#         return response
-
-# api.add_resource(Users, '/users')
 
 class Signup(Resource):
     def post(self):
@@ -68,7 +51,7 @@ api.add_resource(Login, '/login')
 class AuthorizedSession(Resource):
     def get(self):
         try:
-            user = User.query.filter_by(id=session.get('user_id')).first()
+            user = User.query.filter_by(id=session['user_id']).first()
             response = make_response(
                 user.to_dict(),
                 200
