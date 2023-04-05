@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
         parks = []
 
-        p1 = Park(name='Pictured Rocks National Lakeshore', location='Munising, MI', description='Pictured Rocks has nearly 100 miles of hiking trails, including 42 miles of the North Country Trail running through. Set in Michigan\'s upper peninsula on Lake Superior, Pictured Rocks contains beautiful beaches, waterfalls, woodland scenery, and sandstone cliffs going right up to Lake Superior\'s edge.', image='/Users/brettdebear/Development/code/phase-5/Michigan-Project/client/assets/picturedrocks.jpeg')
+        p1 = Park(name='Pictured Rocks National Lakeshore', location='Munising, MI', description='Pictured Rocks has nearly 100 miles of hiking trails, including 42 miles of the North Country Trail running through. Set in Michigan\'s upper peninsula on Lake Superior, Pictured Rocks contains beautiful beaches, waterfalls, woodland scenery, and sandstone cliffs going right up to Lake Superior\'s edge.', image='https://github.com/BrettdeBear/Michigan-Project/blob/main/0A9938E2-4CC9-4AC9-8733-0BEA7564EC1F_1_105_c.jpeg?raw=true')
 
         parks.append(p1)
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
         parks.append(p2)
 
-        p3 = Park(name='Sleeping Bear Dunes National Lakeshore', location='Leelanau and Benzie counties, MI', description='Sleeping Bear Dunes is located in "the pinky" of Michigan\'s lower peninsula along Lake Michigan. It consists of stunning, sandy beaches and two islands--North and South Manitou Islands.', image='/Users/brettdebear/Development/code/phase-5/Michigan-Project/client/assets/sleepingbear.jpeg')
+        p3 = Park(name='Sleeping Bear Dunes National Lakeshore', location='Leelanau and Benzie counties, MI', description='Sleeping Bear Dunes is located in "the pinky" of Michigan\'s lower peninsula along Lake Michigan. It consists of stunning, sandy beaches and two islands--North and South Manitou Islands.', image='https://github.com/BrettdeBear/Michigan-Project/blob/main/BC2CA821-5B0E-4D69-B342-CAAE3189C36F_1_105_c.jpeg?raw=true')
 
         parks.append(p3)
 
