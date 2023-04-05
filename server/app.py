@@ -10,7 +10,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import User
+from models import User, Park
 
 # Views go here!
 
@@ -69,6 +69,28 @@ class Logout(Resource):
         return response
     
 api.add_resource(Logout, '/logout')
+
+class Parks(Resource):
+    def get(self):
+        park_list = [park.to_dict() for park in Park.query.all()]
+        response = make_response(
+            park_list,
+            200
+        )
+        return response
+    
+api.add_resource(Parks, '/parks')
+
+class ParkById(Resource):
+    def get(self, id):
+        park = Park.query.filter_by(id=id).first()
+        response = make_response(
+            park.to_dict(),
+            200
+        )
+        return response
+    
+api.add_resource(ParkById, '/parks/<int:id>')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
