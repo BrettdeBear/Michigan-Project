@@ -26,6 +26,11 @@ function Nav({updateUser}) {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink exact to="/parks">
+                        Parks
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink exact to="/authentication">
                         Login/Sign Up
                     </NavLink>

@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useParams } from "react-router-dom";
 import { useState } from "react";
 
 import Authentication from "./Authentication";
 import Nav from "./Nav";
 import Home from "./Home";
+import ParksPage from "./ParksPage";
+import ParkCard from "./ParkCard";
+import OnePark from "./OnePark"
+
+import "../index.css"
 
 function App() {
   const [user, setUser] = useState(null)
@@ -35,6 +40,12 @@ function App() {
       <Switch>
         <Route exact path="/">
           Home
+        </Route>
+        <Route path="/parks/:id">
+          <OnePark />
+        </Route>
+        <Route path="/parks" >
+          <ParksPage />
         </Route>
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />
