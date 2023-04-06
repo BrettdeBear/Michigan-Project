@@ -30,7 +30,7 @@ class User(db.Model, SerializerMixin):
 class Park(db.Model, SerializerMixin):
     __tablename__ = 'parks'
 
-    serialize_rules = ('-trail',)
+    # serialize_rules = ('-trail',)
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
@@ -51,5 +51,6 @@ class Trail(db.Model, SerializerMixin):
     park_id = db.Column(db.Integer, db.ForeignKey('parks.id'))
 
     park = db.relationship('Park', backref='trail')
+    serialize_rules = ('-park',)
 
     

@@ -10,6 +10,7 @@ import ParkCard from "./ParkCard";
 import OnePark from "./OnePark"
 
 import "../index.css"
+import TrailCard from "./TrailCard";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path="/parks" >
           <ParksPage />
+        </Route>
+        <Route path="/trails/:id">
+          <TrailCard />
         </Route>
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />

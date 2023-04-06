@@ -103,5 +103,16 @@ class Trails(Resource):
 
 api.add_resource(Trails, '/trails')
 
+class TrailById(Resource):
+    def get(self, id):
+        trail = Trail.query.filter_by(id=id).first()
+        response = make_response(
+            trail.to_dict(),
+            200
+        )
+        return response
+
+api.add_resource(TrailById, '/trails/<int:id>')
+
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
