@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
         parks = []
 
-        p1 = Park(name='Pictured Rocks National Lakeshore', location='Munising, MI', description='Pictured Rocks has nearly 100 miles of hiking trails, including 42 miles of the North Country Trail running through. Set in Michigan\'s upper peninsula on Lake Superior, Pictured Rocks contains beautiful beaches, waterfalls, woodland scenery, and sandstone cliffs going right up to Lake Superior\'s edge.', image='https://github.com/BrettdeBear/Michigan-Project/blob/main/0A9938E2-4CC9-4AC9-8733-0BEA7564EC1F_1_105_c.jpeg?raw=true')
+        p1 = Park(name='Pictured Rocks National Lakeshore', location='Munising, MI', description='Pictured Rocks has nearly 100 miles of hiking trails, including 42 miles of the North Country Trail running through. Set in Michigan\'s upper peninsula on Lake Superior, Pictured Rocks contains beautiful beaches, waterfalls, woodland scenery, and sandstone cliffs going right up to Lake Superior\'s edge.', image='https://raw.githubusercontent.com/BrettdeBear/Michigan-Project/95c8d20bf5212799069f42f81d6fe3c48e0c7cce/51D2F167-C4C0-4281-8686-9ED87C5EED1E_1_105_c.jpeg')
 
         parks.append(p1)
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
         parks.append(p2)
 
-        p3 = Park(name='Sleeping Bear Dunes National Lakeshore', location='Leelanau and Benzie counties, MI', description='Sleeping Bear Dunes is located in "the pinky" of Michigan\'s lower peninsula along Lake Michigan. It consists of stunning, sandy beaches and two islands--North and South Manitou Islands.', image='https://github.com/BrettdeBear/Michigan-Project/blob/main/BC2CA821-5B0E-4D69-B342-CAAE3189C36F_1_105_c.jpeg?raw=true')
+        p3 = Park(name='Sleeping Bear Dunes National Lakeshore', location='Leelanau and Benzie counties, MI', description='Sleeping Bear Dunes is located in "the pinky" of Michigan\'s lower peninsula along Lake Michigan. It consists of stunning, sandy beaches and two islands--North and South Manitou Islands.', image='https://raw.githubusercontent.com/BrettdeBear/Michigan-Project/95c8d20bf5212799069f42f81d6fe3c48e0c7cce/BC2CA821-5B0E-4D69-B342-CAAE3189C36F_1_105_c.jpeg')
 
         parks.append(p3)
 
