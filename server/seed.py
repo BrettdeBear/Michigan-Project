@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
         parks = []
 
-        p1 = Park(name='Pictured Rocks National Lakeshore', location='Munising, MI', description='Pictured Rocks has nearly 100 miles of hiking trails, including 42 miles of the North Country Trail running through. Set in Michigan\'s upper peninsula on Lake Superior, Pictured Rocks contains beautiful beaches, waterfalls, woodland scenery, and sandstone cliffs going right up to Lake Superior\'s edge.', image='https://github.com/BrettdeBear/Michigan-Project/blob/main/0A9938E2-4CC9-4AC9-8733-0BEA7564EC1F_1_105_c.jpeg?raw=true')
+        p1 = Park(name='Pictured Rocks National Lakeshore', location='Munising, MI', description='Pictured Rocks has nearly 100 miles of hiking trails, including 42 miles of the North Country Trail running through. Set in Michigan\'s upper peninsula on Lake Superior, Pictured Rocks contains beautiful beaches, waterfalls, woodland scenery, and sandstone cliffs going right up to Lake Superior\'s edge.', image='https://github.com/BrettdeBear/Michigan-Project/blob/main/51D2F167-C4C0-4281-8686-9ED87C5EED1E_1_105_c.jpeg?raw=true')
 
         parks.append(p1)
 
