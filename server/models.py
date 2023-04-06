@@ -30,11 +30,26 @@ class User(db.Model, SerializerMixin):
 class Park(db.Model, SerializerMixin):
     __tablename__ = 'parks'
 
+    serialize_rules = ('-trail',)
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     location = db.Column(db.String)
     description = db.Column(db.String)
     image = db.Column(db.String)
 
+class Trail(db.Model, SerializerMixin):
+    __tablename__ = 'trails'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    length = db.Column(db.String)
+    difficulty = db.Column(db.String)
+    description = db.Column(db.String)
+    # image = db.Column(db.String)
+
+    park_id = db.Column(db.Integer, db.ForeignKey('parks.id'))
+
+    park = db.relationship('Park', backref='trail')
 
     

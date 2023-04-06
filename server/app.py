@@ -10,7 +10,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import User, Park
+from models import User, Park, Trail
 
 # Views go here!
 
@@ -91,6 +91,17 @@ class ParkById(Resource):
         return response
     
 api.add_resource(ParkById, '/parks/<int:id>')
+
+class Trails(Resource):
+    def get(self):
+        trail_list = [trail.to_dict() for trail in Trail.query.all()]
+        response = make_response(
+            trail_list,
+            200
+        )
+        return response
+
+api.add_resource(Trails, '/trails')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
