@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function OnePark({parks}) {
+function OnePark() {
     const [onePark, setOnePark] = useState([])
     const { id } = useParams()
 

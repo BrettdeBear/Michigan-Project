@@ -13,13 +13,6 @@ import "../index.css"
 
 function App() {
   const [user, setUser] = useState(null)
-  const [parks, setParks] = useState([]);
-
-    useEffect(() => {
-        fetch('/parks')
-        .then((response) => response.json())
-        .then(parkData => setParks(parkData))
-    }, [])
 
   useEffect(() => {
     fetch("/authorized")
@@ -49,10 +42,10 @@ function App() {
           Home
         </Route>
         <Route path="/parks/:id">
-          <OnePark parks={parks}/>
+          <OnePark />
         </Route>
         <Route path="/parks" >
-          <ParksPage parks={parks}/>
+          <ParksPage />
         </Route>
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />
