@@ -11,7 +11,7 @@ function TrailCard() {
         .then(data => setOneTrail(data))
     }, [id])
 
-    console.log(oneTrail)
+    // console.log(oneTrail)
 
     return <div>
         <h3>{oneTrail.name}</h3>

@@ -10,10 +10,10 @@ function OnePark() {
             .then(response => response.json())
             .then(data => setOnePark(data))
         }, [id])
-        console.log(onePark)
+        // console.log(onePark)
 
     const parkTrails = onePark.trail || []
-    console.log(parkTrails)
+    // console.log(parkTrails)
 
     const oneParkTrails = parkTrails.map((trailObj) => {
         return (
