@@ -49,7 +49,7 @@ function App() {
           <ParksPage />
         </Route>
         <Route path="/trails/:id">
-          <TrailCard />
+          <TrailCard user={user}/>
         </Route>
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />

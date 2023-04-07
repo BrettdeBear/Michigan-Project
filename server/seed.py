@@ -8,7 +8,7 @@ from random import randint, choice as rc
 
 # Local imports
 from app import app
-from models import db, Park, Trail
+from models import db, Park, Trail, Review
 
 if __name__ == '__main__':
     # fake = Faker()
@@ -18,6 +18,7 @@ if __name__ == '__main__':
 
         Park.query.delete()
         Trail.query.delete()
+        Review.query.delete()
 
         parks = []
 
@@ -98,4 +99,17 @@ if __name__ == '__main__':
         trails.append(t12)
 
         db.session.add_all(trails)
+        db.session.commit()
+
+        reviews = []
+
+        r1 = Review(rating='5/5', text='Beautiful trail along Lake Superior!', user_id=4, trail_id=1)
+
+        reviews.append(r1)
+
+        r2 = Review(rating='4/5', text='Pretty, but a little to easy for my taste.', user_id=2, trail_id=11)
+
+        reviews.append(r2)
+
+        db.session.add_all(reviews)
         db.session.commit()
