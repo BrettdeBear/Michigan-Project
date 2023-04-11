@@ -10,7 +10,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import User, Park, Trail, Review
+from models import User, Park, Trail, Review, Fact
 
 # Views go here!
 
@@ -142,6 +142,17 @@ class Reviews(Resource):
         return response
     
 api.add_resource(Reviews, '/reviews')
+
+class Facts(Resource):
+    def get(self):
+        fact_list = [fact.to_dict() for fact in Fact.query.all()]
+        response = make_response(
+            fact_list,
+            200
+        )
+        return response
+    
+api.add_resource(Facts, '/facts')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
