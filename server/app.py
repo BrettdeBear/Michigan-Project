@@ -128,6 +128,7 @@ class Reviews(Resource):
         new_review = Review(
             rating=data['rating'],
             text=data['text'],
+            image=data['image'],
             user_id=session['user_id'],
             trail_id=data['trail_id']
         )
@@ -143,4 +144,4 @@ class Reviews(Resource):
 api.add_resource(Reviews, '/reviews')
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(port=5000, debug=True)

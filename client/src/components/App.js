@@ -11,6 +11,7 @@ import OnePark from "./OnePark"
 
 import "../index.css"
 import TrailCard from "./TrailCard";
+import ImageUpload from "./ImageUpload";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />
+        </Route>
+        <Route path="/imageupload">
+          <ImageUpload />
         </Route>
       </Switch>
     </div>

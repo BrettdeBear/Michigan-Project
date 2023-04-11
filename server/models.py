@@ -63,6 +63,7 @@ class Review(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.String)
     text = db.Column(db.String)
+    image = db.Column(db.String)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     trail_id = db.Column(db.Integer, db.ForeignKey('trails.id'))
