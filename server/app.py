@@ -10,7 +10,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import User, Park
+from models import User, Park, Trail, Review
 
 # Views go here!
 
@@ -92,5 +92,56 @@ class ParkById(Resource):
     
 api.add_resource(ParkById, '/parks/<int:id>')
 
+class Trails(Resource):
+    def get(self):
+        trail_list = [trail.to_dict() for trail in Trail.query.all()]
+        response = make_response(
+            trail_list,
+            200
+        )
+        return response
+
+api.add_resource(Trails, '/trails')
+
+class TrailById(Resource):
+    def get(self, id):
+        trail = Trail.query.filter_by(id=id).first()
+        response = make_response(
+            trail.to_dict(),
+            200
+        )
+        return response
+
+api.add_resource(TrailById, '/trails/<int:id>')
+
+class Reviews(Resource):
+    def get(self):
+        review_list = [review.to_dict() for review in Review.query.all()]
+        response = make_response(
+            review_list,
+            200
+        )
+        return response
+    
+    def post(self):
+        data=request.get_json()
+        new_review = Review(
+            rating=data['rating'],
+            text=data['text'],
+            image=data['image'],
+            user_id=session['user_id'],
+            trail_id=data['trail_id']
+        )
+        db.session.add(new_review)
+        db.session.commit()
+
+        response = make_response(
+            new_review.to_dict(),
+            201
+        )
+        return response
+    
+api.add_resource(Reviews, '/reviews')
+
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(port=5000, debug=True)

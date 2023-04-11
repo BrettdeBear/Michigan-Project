@@ -8,7 +8,7 @@ from random import randint, choice as rc
 
 # Local imports
 from app import app
-from models import db, Park
+from models import db, Park, Trail, Review
 
 if __name__ == '__main__':
     # fake = Faker()
@@ -17,6 +17,8 @@ if __name__ == '__main__':
         # Seed code goes here!
 
         Park.query.delete()
+        Trail.query.delete()
+        Review.query.delete()
 
         parks = []
 
@@ -45,4 +47,69 @@ if __name__ == '__main__':
         parks.append(p6)
 
         db.session.add_all(parks)
+        db.session.commit()
+
+        trails = []
+
+        t1 = Trail(name='Mosquito Falls and Chapel Falls via Chapel Loop', length='10.5 Miles', difficulty='Moderate', description='A popular 10.5 mile loop that takes you through forests with views of waterfalls, a stunning cliff edge looking out over Lake Superior, and to beautiful beaches.', park_id=1)
+
+        trails.append(t1)
+
+        t2 = Trail(name='Chapel Falls', length='2.5 Miles', difficulty='Easy', description='A beautiful and short hike for the family, this hike takes you to Chapel Falls, a beautiful 60 foot high waterfall.', park_id=1)
+
+        trails.append(t2)
+
+        t3 = Trail(name='Miners Falls Trail', length='1.2 Miles', difficulty='Easy', description='This is a beautiful and easy park for he whole family. It is a forested trail that takes you to Miners River and to a view of a stunning waterfall.', park_id=1)
+
+        trails.append(t3)
+
+        t4 = Trail(name='Stoll Memorial Trail', length='4.7 Miles', difficulty='Moderate', description='This trail takes you on a hike through beautiful forests and shoreline.', park_id=2)
+
+        trails.append(t4)
+
+        t5 = Trail(name='Tobin Harbor Trail', length='6 Miles', difficulty='Moderate', description='A popular and moderately strenuous trail with outstanding wildlife. If you\'re lucky, you may catch sight of a moose!', park_id=2)
+
+        trails.append(t5)
+
+        t6 = Trail(name='Dune Climb Trail', length='3.6 Miles', difficulty='Strenuous', description='A difficult hike along the dunes of the Lake Michigan Shoreline, this trail is more than worth it. It offers very little shade, so bring a hat and sunscreen.', park_id=3)
+        trails.append(t6)
+
+        t7 = Trail(name='Pyramid Point Loop', length='2.7 Miles', difficulty='Moderate', description='This short and unique hike will take you through forests, bluffs, and meadows, according to the National Park Service. It offers stunning views of Lake Michigan.', park_id=3)
+
+        trails.append(t7)
+
+        t8 = Trail(name='Clark Lake Loop', length='5.2 Miles', difficulty='Moderate', description='A beautiful hike around an inland lake perfect for summer hiking or winter snowshoeing.', park_id=4)
+
+        trails.append(t8)
+
+        t9 = Trail(name='Upper and Lower Tahquamenon Falls', length='10.2 Miles', difficulty='Moderate', description='You can choose to break this hike up to see only the Upper Falls or the Lower Falls, but if you are hoping for a beautiful day hike, this offers beautiful scenery.', park_id=4)
+
+        trails.append(t9)
+
+        t10 = Trail(name='Escarpment Trail', length='8.4 Miles', difficulty='Strenuous', description='A beautiful hike with scenic views of Lake of the Clouds. This hike goes through the rolling hills, so be prepared for plenty of ups and downs!', park_id=5)
+
+        trails.append(t10)
+
+        t11 = Trail(name='Lake of the Clouds', length='1.8 Miles', difficulty='Easy', description='If you\'re looking for an easy way to see the Lake of the Clouds without doing the entire Escarpment Trail, you can choose to do this out and back trail with a scenic overlook.', park_id=5)
+
+        trails.append(t11)
+
+        t12 = Trail(name='Warren Dunes Trail', length='5 miles', difficulty='Moderate', description='A beautiful hike with scenic views of Lake Michigan and its sandy shoreline.', park_id=6)
+
+        trails.append(t12)
+
+        db.session.add_all(trails)
+        db.session.commit()
+
+        reviews = []
+
+        r1 = Review(rating='5/5', text='Beautiful trail along Lake Superior!', user_id=4, trail_id=1)
+
+        reviews.append(r1)
+
+        r2 = Review(rating='4/5', text='Pretty, but a little to easy for my taste.', user_id=2, trail_id=11)
+
+        reviews.append(r2)
+
+        db.session.add_all(reviews)
         db.session.commit()

@@ -7,6 +7,8 @@ from config import db, bcrypt
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
+    serialize_rules = ('-review',)
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     email = db.Column(db.String)
@@ -30,11 +32,43 @@ class User(db.Model, SerializerMixin):
 class Park(db.Model, SerializerMixin):
     __tablename__ = 'parks'
 
+    # serialize_rules = ('-trail',)
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     location = db.Column(db.String)
     description = db.Column(db.String)
     image = db.Column(db.String)
 
+class Trail(db.Model, SerializerMixin):
+    __tablename__ = 'trails'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    length = db.Column(db.String)
+    difficulty = db.Column(db.String)
+    description = db.Column(db.String)
+    # image = db.Column(db.String)
+
+    park_id = db.Column(db.Integer, db.ForeignKey('parks.id'))
+
+    park = db.relationship('Park', backref='trail')
+    serialize_rules = ('-park',)
+
+class Review(db.Model, SerializerMixin):
+    __tablename__ = 'reviews'
+
+    serialize_rules = ('-trail', '-users._password_hash', '-users.created_at', '-users.updated_at', '-users.email')
+
+    id = db.Column(db.Integer, primary_key=True)
+    rating = db.Column(db.String)
+    text = db.Column(db.String)
+    image = db.Column(db.String)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    trail_id = db.Column(db.Integer, db.ForeignKey('trails.id'))
+
+    users = db.relationship('User', backref='review')
+    trail = db.relationship('Trail', backref='review')
 
     

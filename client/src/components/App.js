@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
-import { Switch, Route, useParams } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Authentication from "./Authentication";
 import Nav from "./Nav";
 import Home from "./Home";
 import ParksPage from "./ParksPage";
-import ParkCard from "./ParkCard";
+// import ParkCard from "./ParkCard";
 import OnePark from "./OnePark"
 
 import "../index.css"
+import TrailCard from "./TrailCard";
+import ImageUpload from "./ImageUpload";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -47,8 +49,14 @@ function App() {
         <Route path="/parks" >
           <ParksPage />
         </Route>
+        <Route path="/trails/:id">
+          <TrailCard user={user}/>
+        </Route>
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />
+        </Route>
+        <Route path="/imageupload">
+          <ImageUpload />
         </Route>
       </Switch>
     </div>
