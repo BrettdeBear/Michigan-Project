@@ -41,7 +41,7 @@ function App() {
       <Nav updateUser={updateUser} user={user} />
       <Switch>
         <Route exact path="/">
-          Home
+          <Home />
         </Route>
         <Route path="/parks/:id">
           <OnePark />

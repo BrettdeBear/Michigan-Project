@@ -134,4 +134,4 @@ if __name__ == '__main__':
         facts.append(f4)
 
         db.session.add_all(facts)
-        db.session.commmit()
+        db.session.commit()
