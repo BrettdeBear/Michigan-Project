@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import {useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
@@ -9,6 +9,7 @@ function TrailCard({user}) {
     const { id } = useParams()
     const [submittedReview, setSubmittedReview] = useState([])
     const [images, setImages] = useState('')
+    const [editMode, setEditMode] = useState(false)
     const history = useHistory()
     const addReview = (review) => setSubmittedReview(current => [review, ...current])
 
@@ -17,11 +18,8 @@ function TrailCard({user}) {
         .then(response => response.json())
         .then(data => setOneTrail(data))
     }, [id])
-    console.log(oneTrail.review)
-    console.log(oneTrail.id)
 
     const parkReviews = oneTrail.review || []
-    console.log(parkReviews)
 
     const formSchema = yup.object().shape({
         text: yup.string().required("Please let us know what you thought!")
@@ -37,7 +35,7 @@ function TrailCard({user}) {
         },
         validationSchema: formSchema,
         onSubmit: () => {
-            console.log(formik.values.image)
+  
             const { image } = formik.values
             const formData = new FormData()
 
@@ -62,18 +60,30 @@ function TrailCard({user}) {
                 })
             })          
         }
-    })        
+    })  
 
     const trailReviews = parkReviews.map((reviewObj) => {
-        console.log(reviewObj)
+        function handleDelete() {
+            fetch(`/reviews/${reviewObj.id}`, {
+                method: 'DELETE'
+            })
+            window.location.reload()
+        }
+
+        const deleteButton = (user.id === reviewObj.user_id) ? <button onClick={handleDelete}>Delete Review</button> : null
+
+        const editButton = (user.id === reviewObj.user_id) ? <button>Edit Review</button> : null
+        
         return (
             <div key={reviewObj.id}>
                 <h6>{reviewObj.users.name} || {reviewObj.rating}</h6>
                 <p>{reviewObj.text}</p>
-                <img style={{ width: 200 }}src={reviewObj.image}/>
+                <img style={{ width: 200 }} src={reviewObj.image}/>
+                {editButton}
+                {deleteButton}
             </div>
         )
-    })
+    })   
 
     return <div>
         <h3>{oneTrail.name}</h3>

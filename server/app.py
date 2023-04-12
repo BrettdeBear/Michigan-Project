@@ -143,6 +143,40 @@ class Reviews(Resource):
     
 api.add_resource(Reviews, '/reviews')
 
+class ReviewById(Resource):
+    def get(self):
+        review = Review.query.filter_by(id=id).first()
+        response = make_response(
+            review.to_dict(),
+            200
+        )
+        return response
+    
+    def delete(self, id):
+        review = Review.query.filter_by(id=id).first()
+        if session['user_id'] == review.user_id:
+
+            db.session.delete(review)
+            db.session.commit()
+            return make_response('deleted', 200)
+        
+    def patch(self, id):
+        review = Review.query.filter_by(id=id).first()
+        # if session['user_id'] == review.user_id:
+        data = request.get_json()
+        for key in data:
+            setattr(review, key, data[key])
+        db.session.add(review)
+        db.session.commit()
+
+        response = make_response(
+            review.to_dict(),
+            200
+        )
+        return response
+
+api.add_resource(ReviewById, '/reviews/<int:id>')
+
 class Facts(Resource):
     def get(self):
         fact_list = [fact.to_dict() for fact in Fact.query.all()]

@@ -1,10 +1,14 @@
-// import React from "react";
-// import { useHistory } from "react-router-dom";
-// import { useState } from "react";
-// import {useFormik } from "formik";
-// import * as yup from "yup";
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import {useFormik } from "formik";
+import * as yup from "yup";
 
-// function AddReview({ oneTrail }) {
+function AddReview({ oneTrail }) {
+
+
+
+    
 //     const [submittedReview, setSubmittedReview] = useState([])
 //     const history = useHistory()
 //     console.log(oneTrail)
@@ -59,6 +63,6 @@
 //             </form>
 //         </div>
 //     )
-// }
+}
 
-// export default AddReview;
+export default AddReview;
