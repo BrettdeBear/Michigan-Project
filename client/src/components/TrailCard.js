@@ -9,9 +9,11 @@ function TrailCard({user}) {
     const { id } = useParams()
     const [submittedReview, setSubmittedReview] = useState([])
     const [images, setImages] = useState('')
-    const [editMode, setEditMode] = useState(false)
+    // const [editMode, setEditMode] = useState(true)
+    // const [editValues, setEditValues] = useState({})
     const history = useHistory()
     const addReview = (review) => setSubmittedReview(current => [review, ...current])
+    // const editReview = (review) => setSubmittedReview(current => review)
 
     useEffect(() => {
         fetch(`/trails/${id}`)
@@ -35,13 +37,13 @@ function TrailCard({user}) {
         },
         validationSchema: formSchema,
         onSubmit: () => {
-  
             const { image } = formik.values
             const formData = new FormData()
-
+            
             formData.append("file", image)
             formData.append("upload_preset", "f0fnjc0n")
-
+          
+            
             axios.post("https://api.cloudinary.com/v1_1/dvzyuzmzs/image/upload", formData)
             .then((res) => {
                 console.log(res)
@@ -58,11 +60,33 @@ function TrailCard({user}) {
                         })
                     }
                 })
-            })          
+            }) 
+            //  ) : (
+            //     fetch('/reviews', {
+            //         method: 'PATCH',
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //         },
+            //         body: JSON.stringify(formik.values),
+            //     })
+            //     .then(res => {
+            //         if(res.ok) {
+            //             res.json().then(review => {
+            //                 editReview(review)
+            //             })
+            //         }
+            //     })
+            // )
+                    
         }
     })  
 
+    
     const trailReviews = parkReviews.map((reviewObj) => {
+
+        // function handleEditMode() {
+        //     setEditMode(current => !current)
+        // }
         function handleDelete() {
             fetch(`/reviews/${reviewObj.id}`, {
                 method: 'DELETE'
@@ -72,18 +96,22 @@ function TrailCard({user}) {
 
         const deleteButton = (user.id === reviewObj.user_id) ? <button onClick={handleDelete}>Delete Review</button> : null
 
-        const editButton = (user.id === reviewObj.user_id) ? <button>Edit Review</button> : null
+        // const editButton = (user.id === reviewObj.user_id) ? <button onClick={() => handleEditMode(reviewObj)}>Edit Review</button> : null
+
         
         return (
             <div key={reviewObj.id}>
                 <h6>{reviewObj.users.name} || {reviewObj.rating}</h6>
                 <p>{reviewObj.text}</p>
                 <img style={{ width: 200 }} src={reviewObj.image}/>
-                {editButton}
+                {/* {editButton} */}
                 {deleteButton}
             </div>
         )
-    })   
+     } )
+        
+       
+    // console.log(editMode)
 
     return <div>
         <h3>{oneTrail.name}</h3>

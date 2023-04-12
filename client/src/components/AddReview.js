@@ -5,10 +5,6 @@ import {useFormik } from "formik";
 import * as yup from "yup";
 
 function AddReview({ oneTrail }) {
-
-
-
-    
 //     const [submittedReview, setSubmittedReview] = useState([])
 //     const history = useHistory()
 //     console.log(oneTrail)
