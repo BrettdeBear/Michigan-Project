@@ -1,27 +1,37 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
-import {useFormik } from "formik";
+import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
+import EditReview from "./EditReview";
+
+// import AddReview from "./AddReview";
 
 function TrailCard({user}) {
     const [oneTrail, setOneTrail] = useState([])
     const { id } = useParams()
     const [submittedReview, setSubmittedReview] = useState([])
     const [images, setImages] = useState('')
-    // const [editMode, setEditMode] = useState(true)
-    // const [editValues, setEditValues] = useState({})
+    const [reviews, setReviews] = useState([])
+    const [editMode, setEditMode] = useState(false)
     const history = useHistory()
     const addReview = (review) => setSubmittedReview(current => [review, ...current])
-    // const editReview = (review) => setSubmittedReview(current => review)
+ 
 
     useEffect(() => {
         fetch(`/trails/${id}`)
         .then(response => response.json())
-        .then(data => setOneTrail(data))
+        .then(data => {
+            setOneTrail(data)
+            setReviews(data.review)
+            console.log(data.review)
+        })
     }, [id])
+    console.log(reviews)
 
-    const parkReviews = oneTrail.review || []
+    // const parkReviews = oneTrail.review || []
+
+    // console.log(parkReviews)
 
     const formSchema = yup.object().shape({
         text: yup.string().required("Please let us know what you thought!")
@@ -60,33 +70,13 @@ function TrailCard({user}) {
                         })
                     }
                 })
-            }) 
-            //  ) : (
-            //     fetch('/reviews', {
-            //         method: 'PATCH',
-            //         headers: {
-            //             "Content-Type": "application/json",
-            //         },
-            //         body: JSON.stringify(formik.values),
-            //     })
-            //     .then(res => {
-            //         if(res.ok) {
-            //             res.json().then(review => {
-            //                 editReview(review)
-            //             })
-            //         }
-            //     })
-            // )
-                    
+            })         
         }
     })  
 
     
-    const trailReviews = parkReviews.map((reviewObj) => {
+    const trailReviews = reviews.map((reviewObj) => {
 
-        // function handleEditMode() {
-        //     setEditMode(current => !current)
-        // }
         function handleDelete() {
             fetch(`/reviews/${reviewObj.id}`, {
                 method: 'DELETE'
@@ -94,29 +84,33 @@ function TrailCard({user}) {
             window.location.reload()
         }
 
+        function toggleEditButton() {
+            setEditMode(current => !current)
+        }
+
         const deleteButton = (user.id === reviewObj.user_id) ? <button onClick={handleDelete}>Delete Review</button> : null
 
-        // const editButton = (user.id === reviewObj.user_id) ? <button onClick={() => handleEditMode(reviewObj)}>Edit Review</button> : null
-
+        const editButton = (user.id === reviewObj.user_id) ? <button onClick={toggleEditButton}>Edit Review</button> : null
         
         return (
             <div key={reviewObj.id}>
                 <h6>{reviewObj.users.name} || {reviewObj.rating}</h6>
                 <p>{reviewObj.text}</p>
                 <img style={{ width: 200 }} src={reviewObj.image}/>
-                {/* {editButton} */}
+                {editMode ? <EditReview reviews={reviews} setReviews={setReviews} reviewObj={reviewObj} setEditMode={setEditMode} /> : null}
+                {editButton}
                 {deleteButton}
             </div>
         )
      } )
-        
-       
-    // console.log(editMode)
+     console.log(editMode)
+    //  console.log(trailReviews)
 
     return <div>
         <h3>{oneTrail.name}</h3>
         <h5>{oneTrail.length} || {oneTrail.difficulty}</h5>
         <p>{oneTrail.description}</p>
+        {/* <AddReview reviews={reviews} setReviews={setReviews} user={user} /> */}
         <form onSubmit={formik.handleSubmit}>
                 <label>Rating: </label>
                 <select name="rating" value={formik.values.rating} onChange={formik.handleChange} >
