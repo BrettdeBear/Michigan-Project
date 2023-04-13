@@ -8,7 +8,7 @@ from random import randint, choice as rc
 
 # Local imports
 from app import app
-from models import db, Park, Trail, Review
+from models import db, Park, Trail, Review, Fact
 
 if __name__ == '__main__':
     # fake = Faker()
@@ -19,6 +19,7 @@ if __name__ == '__main__':
         Park.query.delete()
         Trail.query.delete()
         Review.query.delete()
+        Fact.query.delete()
 
         parks = []
 
@@ -107,9 +108,30 @@ if __name__ == '__main__':
 
         reviews.append(r1)
 
-        r2 = Review(rating='4/5', text='Pretty, but a little to easy for my taste.', user_id=2, trail_id=11)
+        r2 = Review(rating='4/5', text='Pretty, but a little too easy for my taste.', user_id=2, trail_id=11)
 
         reviews.append(r2)
 
         db.session.add_all(reviews)
+        db.session.commit()
+
+        facts = []
+
+        f1 = Fact(fun_fact='What is Michigan\'s nickname?', answer='Officially, The Wolverine State, but there are plenty of other nicknames: The Great Lake State, The Mitten State, and plenty more!')
+
+        facts.append(f1)
+
+        f2 = Fact(fun_fact='What is the capital of Michigan?', answer='Lansing')
+
+        facts.append(f2)
+
+        f3 = Fact(fun_fact='How many miles of coastline does Michigan have?', answer='3,288 miles')
+
+        facts.append(f3)
+
+        f4 = Fact(fun_fact='What city, deemed the Motor City, is known as the car capital of the world?', answer='Detroit')
+
+        facts.append(f4)
+
+        db.session.add_all(facts)
         db.session.commit()

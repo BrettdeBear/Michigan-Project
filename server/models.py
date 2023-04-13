@@ -71,4 +71,11 @@ class Review(db.Model, SerializerMixin):
     users = db.relationship('User', backref='review')
     trail = db.relationship('Trail', backref='review')
 
+class Fact(db.Model, SerializerMixin):
+    __tablename__ = 'facts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    fun_fact = db.Column(db.String)
+    answer = db.Column(db.String)
+
     
