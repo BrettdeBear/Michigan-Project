@@ -144,7 +144,7 @@ class Reviews(Resource):
 api.add_resource(Reviews, '/reviews')
 
 class ReviewById(Resource):
-    def get(self):
+    def get(self, id):
         review = Review.query.filter_by(id=id).first()
         response = make_response(
             review.to_dict(),

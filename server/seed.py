@@ -108,7 +108,7 @@ if __name__ == '__main__':
 
         reviews.append(r1)
 
-        r2 = Review(rating='4/5', text='Pretty, but a little to easy for my taste.', user_id=2, trail_id=11)
+        r2 = Review(rating='4/5', text='Pretty, but a little too easy for my taste.', user_id=2, trail_id=11)
 
         reviews.append(r2)
 
