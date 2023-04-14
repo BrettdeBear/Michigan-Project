@@ -48,7 +48,7 @@ function Authentication({updateUser}) {
 
     return(
         <div className='loginform'>
-            <h2 style={{color: 'red'}}>{formik.errors.name}</h2>
+            <h2 style={{color: 'red'}}>{formik.errors.name}<br></br>{formik.errors.email}</h2>
             {error&& <h2 style={{color: 'red'}}>{error}</h2>}
             <h2>Please Log in or Sign up!</h2>
             <h2>{signUp?'Have an account?':'Not a member yet?'}</h2>
