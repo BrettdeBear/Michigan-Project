@@ -1,22 +1,23 @@
-body {
-  /* background-image: url('https://github.com/BrettdeBear/Michigan-Project/blob/main/3E593438-A7BB-4638-B6C5-5932470ECCCC_1_201_a.jpeg?raw=true');
-  backdrop-filter: blur(6px) opacity(0.9);
-  background-repeat: no-repeat;
-  background-size: 150%;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+.oneparkcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  height: 75vh;
 }
 
 .parkpage {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 75vh;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 75vh;
+}
 
   .parkpage body {
 	position: relative;
@@ -189,6 +190,58 @@ body {
     font-size: 20px;
   }
 
+  .home {
+    margin-top: 22px;
+    /* background-image: url("https://img2.10bestmedia.com/Images/Photos/380636/GettyImages-611102194_54_990x660.jpg"); */
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: sticky; */
+    top: 0;
+    padding: 1rem;
+    box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
+    border-radius: 20px;
+    font-weight: 590;
+    font-size: 20px;
+  }
+
+  .factcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+    /* width: 100%;
+    height: 75vh; */
+  }
+
+  .factcard {
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px; 
+    /* min-width: 259px;  */
+    height: 220px; 
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    /* transition: all 0.3s cubic-bezier(.25, .8, .25, 1); */
+    overflow: hidden;
+    margin-bottom: 15px;
+    
+  }
+
+  .factcard h6 {
+    text-align: center;
+  }
+
+  .factcard h5 {
+    text-align: center;
+  }
+
   .navLink {
     width: 50vw;
     
@@ -233,7 +286,7 @@ body {
 
   .reviewform {
     margin-top: 22px;
-    background-image: url('https://github.com/BrettdeBear/Michigan-Project/blob/main/3E593438-A7BB-4638-B6C5-5932470ECCCC_1_201_a.jpeg?raw=true');
+    /* background-image: url('https://github.com/BrettdeBear/Michigan-Project/blob/main/3E593438-A7BB-4638-B6C5-5932470ECCCC_1_201_a.jpeg?raw=true'); */
     opacity: 0.9;
     display: flex;
     flex-direction: column;
@@ -284,7 +337,6 @@ body {
     height: auto; 
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     background: white;
-    opacity: 0.82; 
     display: flex;
     align-items: center;
     justify-content: center;

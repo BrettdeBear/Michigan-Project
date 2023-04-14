@@ -162,18 +162,18 @@ class ReviewById(Resource):
         
     def patch(self, id):
         review = Review.query.filter_by(id=id).first()
-        # if session['user_id'] == review.user_id:
-        data = request.get_json()
-        for key in data:
-            setattr(review, key, data[key])
-        db.session.add(review)
-        db.session.commit()
+        if session['user_id'] == review.user_id:
+            data = request.get_json()
+            for key in data:
+                setattr(review, key, data[key])
+            db.session.add(review)
+            db.session.commit()
 
-        response = make_response(
-            review.to_dict(),
-            200
-        )
-        return response
+            response = make_response(
+                review.to_dict(),
+                200
+            )
+            return response
 
 api.add_resource(ReviewById, '/reviews/<int:id>')
 
