@@ -21,26 +21,35 @@ function Nav({updateUser}) {
         <nav className="navigation">
             <ul>
                 <li>
-                    <NavLink exact to="/">
+                    <NavLink className="brand-name" exact to='/'>
+                        <strong>Michigan Outdoors</strong>
+                    </NavLink>
+                    {/* <NavLink className="navLink" exact to="/">
+                        Home
+                    </NavLink> */}
+                </li>
+                <li>
+                    <NavLink className='navLink' activeClassName='active' exact to='/'>
                         Home
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/parks">
+                    <NavLink className="navLink" activeClassName='active' exact to="/parks">
                         Parks
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/authentication">
+                    <NavLink className="navLink" activeClassName='active' exact to="/authentication">
                         Login/Sign Up
                     </NavLink>
                 </li>
                 <li onClick={handleLogout}> 
-                    <NavLink exact to="/logout">
+                    <NavLink className="navLink" exact to="/logout">
                         Logout
                     </NavLink>
                 </li>
             </ul>
+            <br></br><br></br>
         </nav>
     )
 }

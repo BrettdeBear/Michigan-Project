@@ -37,7 +37,6 @@ function App() {
 
   return(
     <div className="App">
-      <h1>Yay!</h1>
       <Nav updateUser={updateUser} user={user} />
       <Switch>
         <Route exact path="/">

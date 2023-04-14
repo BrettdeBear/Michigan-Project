@@ -52,7 +52,7 @@ function Authentication({updateUser}) {
             {error&& <h2 style={{color: 'red'}}>{error}</h2>}
             <h2>Please Log in or Sign up!</h2>
             <h2>{signUp?'Have an account?':'Not a member yet?'}</h2>
-            <button onClick={handleClick}>{signUp?'Log In':'Signup'}</button>
+            <button id='btn' onClick={handleClick}>{signUp?'Log In':'Signup'}</button>
             <br></br>
             <br></br>
             <form onSubmit={formik.handleSubmit}>
@@ -76,7 +76,7 @@ function Authentication({updateUser}) {
                     </>
                 )}
                 <br></br>
-                <input type='submit' value={signUp?'Sign Up!':'Log In!'} />
+                <input id='submit' type='submit' value={signUp?'Sign Up!':'Log In!'} />
             </form>
         </div>
     )

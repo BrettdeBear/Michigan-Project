@@ -10,7 +10,7 @@ function ParkCard({ parkObj }) {
         setShowDescription((current) => !current)
     }
 
-    const buttonText = showDescription ? "Hide Description" : "Read about the park"
+    const buttonText = showDescription ? "Hide Description" : "About the Park"
     const descriptionText = showDescription ? <p>{description}</p> : null
    
     return(
@@ -20,8 +20,8 @@ function ParkCard({ parkObj }) {
             <h3>{location}</h3>
             <img src={image} alt='picture of park' />
             {descriptionText}
-            <button onClick={handleClick}>{buttonText}</button>
-            <Link to={`/parks/${id}`}>View {name}</Link>
+            <button id='btn' onClick={handleClick}>{buttonText}</button>
+            <Link id='link' to={`/parks/${id}`}>Visit Park</Link>
         </div>
     )
 }

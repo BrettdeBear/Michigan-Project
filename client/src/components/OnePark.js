@@ -17,20 +17,24 @@ function OnePark() {
 
     const oneParkTrails = parkTrails.map((trailObj) => {
         return (
-            <div className="parkcard" key={trailObj.id}>
+            <div className="trailcard" key={trailObj.id}>
                 <h3>{trailObj.name}</h3>
                 <h5>{trailObj.length} || {trailObj.difficulty}</h5>
+                <img src={trailObj.image} />
                 <p>{trailObj.description}</p>
-                <Link to={`/trails/${trailObj.id}`}>View Trail</Link>
+                <Link id='link' to={`/trails/${trailObj.id}`}>View Trail</Link>
             </div>
         )
     })
 
     return (
         <div>
-            <h2>{onePark.name}</h2>
-            <h3>{onePark.location}</h3>
-            <p>{onePark.description}</p>
+            <div className="onePark">
+                <h2>{onePark.name}</h2>
+                <h3>{onePark.location}</h3>
+                <p>{onePark.description}</p>
+                <img src={onePark.image} />
+            </div>
             {oneParkTrails}
         </div>
     )

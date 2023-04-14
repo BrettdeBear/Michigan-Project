@@ -33,7 +33,7 @@ function EditReview({reviews, setReviews, reviewObj, setEditMode}) {
         }
     })
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form className='editreviewform' onSubmit={formik.handleSubmit}>
                 <label>Rating: </label>
                 <select name="rating" value={formik.values.rating} onChange={formik.handleChange} >
                         <option value="5/5">5/5</option>
@@ -46,7 +46,7 @@ function EditReview({reviews, setReviews, reviewObj, setEditMode}) {
                 <label>Review: </label>
                 <textarea type='text' name="text" value={formik.values.text} onChange={formik.handleChange} />
                 <br></br>
-                <input type='submit' />
+                <input id='submit' type='submit' />
             </form>
     )
 }

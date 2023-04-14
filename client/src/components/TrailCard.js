@@ -88,13 +88,13 @@ function TrailCard({user}) {
             setEditMode(current => !current)
         }
 
-        const deleteButton = (user.id === reviewObj.user_id) ? <button onClick={handleDelete}>Delete Review</button> : null
+        const deleteButton = (user.id === reviewObj.user_id) ? <button id='del-btn' onClick={handleDelete}>Delete Review</button> : null
 
-        const editButton = (user.id === reviewObj.user_id) ? <button onClick={toggleEditButton}>Edit Review</button> : null
+        const editButton = (user.id === reviewObj.user_id) ? <button id='btn' onClick={toggleEditButton}>Edit Review</button> : null
         
         return (
-            <div key={reviewObj.id}>
-                <h6>{reviewObj.users.name} || {reviewObj.rating}</h6>
+            <div className="reviewcard" key={reviewObj.id}>
+                <h5>{reviewObj.users.name} | | {reviewObj.rating}</h5>
                 <p>{reviewObj.text}</p>
                 <img style={{ width: 200 }} src={reviewObj.image}/>
                 {editMode ? <EditReview reviews={reviews} setReviews={setReviews} reviewObj={reviewObj} setEditMode={setEditMode} /> : null}
@@ -107,11 +107,16 @@ function TrailCard({user}) {
     //  console.log(trailReviews)
 
     return <div>
-        <h3>{oneTrail.name}</h3>
+        <div className="trail-info">
+            <h3>{oneTrail.name}</h3>
+            <h5>{oneTrail.length} || {oneTrail.difficulty}</h5>
+            <p>{oneTrail.description}</p>
+        </div>
+        {/* <h3>{oneTrail.name}</h3>
         <h5>{oneTrail.length} || {oneTrail.difficulty}</h5>
-        <p>{oneTrail.description}</p>
+        <p>{oneTrail.description}</p> */}
         {/* <AddReview reviews={reviews} setReviews={setReviews} user={user} /> */}
-        <form onSubmit={formik.handleSubmit}>
+        <form className="reviewform" onSubmit={formik.handleSubmit}>
                 <label>Rating: </label>
                 <select name="rating" value={formik.values.rating} onChange={formik.handleChange} >
                         <option value="5/5">5/5</option>
@@ -126,9 +131,9 @@ function TrailCard({user}) {
                 <br></br>
                 <input type='file' name='image' value={images} onChange={(event) => {formik.setFieldValue('image', event.target.files[0])}} />
                 <br></br>
-                <input type='submit' />
+                <input id='submit' type='submit' />
             </form>
-        {trailReviews}
+        <div className="reviewcontainer">{trailReviews}</div>
     </div>
 }
 

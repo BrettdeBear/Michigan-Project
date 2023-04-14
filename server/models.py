@@ -48,7 +48,7 @@ class Trail(db.Model, SerializerMixin):
     length = db.Column(db.String)
     difficulty = db.Column(db.String)
     description = db.Column(db.String)
-    # image = db.Column(db.String)
+    image = db.Column(db.String)
 
     park_id = db.Column(db.Integer, db.ForeignKey('parks.id'))
 
