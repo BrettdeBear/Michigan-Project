@@ -16,7 +16,7 @@ function ParkCard({ parkObj }) {
     return(
         <div className="parkcard">
             <h2>{name}</h2>
-            <br></br>
+            <br></br><br></br>
             <h3>{location}</h3>
             <img src={image} alt='picture of park' />
             {descriptionText}
