@@ -12,10 +12,12 @@ function FactCard({ factObj }) {
     }
 
     return (
-        <div className='factcard' key={id}>
-            <h5>{fun_fact}</h5>
-            {answerText}
-            <button onClick={handleClick}>{buttonText}</button>
+        <div className='factcontainer'>
+            <div className='factcard' key={id}>
+                <h5>{fun_fact}</h5>
+                {answerText}
+                <button id='btn' onClick={handleClick}>{buttonText}</button>
+            </div>
         </div>
     )
 }

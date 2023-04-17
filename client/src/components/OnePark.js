@@ -28,7 +28,7 @@ function OnePark() {
     })
 
     return (
-        <div>
+        <div className="oneparkcontainer">
             <div className="onePark">
                 <h2>{onePark.name}</h2>
                 <h3>{onePark.location}</h3>

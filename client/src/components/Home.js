@@ -22,8 +22,10 @@ function Home() {
 
     return(
         <div>
-            <h2>Welcome to the Michigan Outdoors!</h2>
-            <p>Explore parks and hiking trails all throughout the beautiful state of Michigan.</p>
+            <div className="home">
+                <h2>Welcome to the Michigan Outdoors!</h2>
+                <p>Explore parks and hiking trails all throughout the beautiful state of Michigan.</p>
+            </div>
             {renderFacts}
         </div>
     )

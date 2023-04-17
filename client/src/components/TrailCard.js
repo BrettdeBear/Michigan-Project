@@ -91,34 +91,38 @@ function TrailCard({user}) {
         const deleteButton = (user.id === reviewObj.user_id) ? <button id='del-btn' onClick={handleDelete}>Delete Review</button> : null
 
         const editButton = (user.id === reviewObj.user_id) ? <button id='btn' onClick={toggleEditButton}>Edit Review</button> : null
+
+        const editModeReview = (user.id === reviewObj.user_id) && editMode ? <EditReview reviews={reviews} setReviews={setReviews} reviewObj={reviewObj} setEditMode={setEditMode} /> : null
         
         return (
-            <div className="reviewcard" key={reviewObj.id}>
-                <h5>{reviewObj.users.name} | | {reviewObj.rating}</h5>
-                <p>{reviewObj.text}</p>
-                <img style={{ width: 200 }} src={reviewObj.image}/>
-                {editMode ? <EditReview reviews={reviews} setReviews={setReviews} reviewObj={reviewObj} setEditMode={setEditMode} /> : null}
-                {editButton}
-                {deleteButton}
+            <div className="reviewcontainer">
+                <div className="reviewcard" key={reviewObj.id}>
+                    <h5>{reviewObj.users.name} | | {reviewObj.rating}</h5>
+                    <p>{reviewObj.text}</p>
+                    <img style={{ width: 200 }} src={reviewObj.image}/>
+                    {editModeReview}
+                    {/* {editMode ? <EditReview reviews={reviews} setReviews={setReviews} reviewObj={reviewObj} setEditMode={setEditMode} /> : null} */}
+                    {editButton}
+                    {deleteButton}
+                </div>
             </div>
         )
      } )
      console.log(editMode)
     //  console.log(trailReviews)
+    // console.log(oneTrail.id)
 
     return <div>
-        <div className="trail-info">
+        <div className="trail-info" key={oneTrail.id}>
             <h3>{oneTrail.name}</h3>
             <h5>{oneTrail.length} || {oneTrail.difficulty}</h5>
             <p>{oneTrail.description}</p>
+            <img src={oneTrail.image} />
         </div>
-        {/* <h3>{oneTrail.name}</h3>
-        <h5>{oneTrail.length} || {oneTrail.difficulty}</h5>
-        <p>{oneTrail.description}</p> */}
-        {/* <AddReview reviews={reviews} setReviews={setReviews} user={user} /> */}
         <form className="reviewform" onSubmit={formik.handleSubmit}>
                 <label>Rating: </label>
                 <select name="rating" value={formik.values.rating} onChange={formik.handleChange} >
+                        <option>Rating</option>
                         <option value="5/5">5/5</option>
                         <option value="4/5">4/5</option>
                         <option value="3/5">3/5</option>
