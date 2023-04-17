@@ -250,10 +250,11 @@ body {
 
   .home {
     margin-top: 22px;
+    text-align: center;
     /* background-image: url("https://img2.10bestmedia.com/Images/Photos/380636/GettyImages-611102194_54_990x660.jpg"); */
     opacity: 0.9;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     /* position: sticky; */
     top: 0;
@@ -269,6 +270,15 @@ body {
       #CCD8BB,
       #A7B88E)
     
+  }
+
+  .home p {
+    font-size: 17px;
+  }
+
+  .home img {
+    height: 300px;
+    border-radius: 10px;
   }
 
   .factcontainer {

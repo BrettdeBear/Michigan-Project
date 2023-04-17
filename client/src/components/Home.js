@@ -23,8 +23,9 @@ function Home() {
     return(
         <div>
             <div className="home">
-                <h2>Welcome to the Michigan Outdoors!</h2>
+                <h2>Welcome to Michigan Outdoors</h2>
                 <p>Explore parks and hiking trails all throughout the beautiful state of Michigan.</p>
+                <img src='https://github.com/BrettdeBear/Michigan-Project/blob/main/B371B4F7-4154-4E9D-8A2B-307B838D8399_1_105_c.jpeg?raw=true'/>
             </div>
             {renderFacts}
         </div>

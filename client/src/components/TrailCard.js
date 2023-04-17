@@ -47,22 +47,14 @@ function TrailCard({user}) {
         },
         validationSchema: formSchema,
         onSubmit: () => {
-            const { image } = formik.values
-            const formData = new FormData()
             
-            formData.append("file", image)
-            formData.append("upload_preset", "f0fnjc0n")
-          
-            
-            axios.post("https://api.cloudinary.com/v1_1/dvzyuzmzs/image/upload", formData)
-            .then((res) => {
-                console.log(res)
+            if (formik.values.image === "") {
                 fetch('/reviews', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({...formik.values, image: res.data.secure_url}),
+                    body: JSON.stringify(formik.values),
                 }).then(res => {
                     if(res.ok) {
                         res.json().then(review => {
@@ -70,9 +62,36 @@ function TrailCard({user}) {
                         })
                     }
                 })
-            })         
+            }
+            else {
+                const { image } = formik.values
+                const formData = new FormData()
+                
+                formData.append("file", image)
+                formData.append("upload_preset", "f0fnjc0n")
+          
+            
+                axios.post("https://api.cloudinary.com/v1_1/dvzyuzmzs/image/upload", formData)
+                .then((res) => {
+                    console.log(res)
+                    fetch('/reviews', {
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({...formik.values, image: res.data.secure_url}),
+                    }).then(res => {
+                        if(res.ok) {
+                            res.json().then(review => {
+                                addReview(review)
+                            })
+                        }
+                    })
+                }) 
+            }        
         }
     })  
+
 
     
     const trailReviews = reviews.map((reviewObj) => {
