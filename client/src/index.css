@@ -1,3 +1,7 @@
+body {
+  font-family: Optima;
+}
+
 .oneparkcontainer {
   display: flex;
   flex-direction: row;
@@ -68,6 +72,7 @@
     transition: 0.25s ease;
     z-index: 999;
     text-align: center;
+    
   }
 
   .parkcard img {
@@ -115,22 +120,37 @@
     border-radius: 20px;
     font-weight: 590;
     font-size: 15px;
+    background-image: linear-gradient(
+      to right,
+      #E5EDD9,
+      #EEF0EB,
+      #CCD8BB,
+      #A7B88E)
   }
 
   .onePark p {
     width: 300px;
     margin-right: 15px;
     text-align: center;
+    font-size: 13px;
   }
   .onePark h2 {
     width: 200px;
     text-align: center;
+    font-size: 20px;
+  }
+
+  .onePark h3 {
+    width: 100px;
+    padding-left: 5px;
+    font-size: 15px;
   }
 
   .onePark img {
     width: 280px;
     align-items: right;
     border-radius: 10px;
+
   } 
 
   .trailcard {
@@ -147,6 +167,12 @@
     /* transition: all 0.3s cubic-bezier(.25, .8, .25, 1); */
     overflow: hidden;
     margin-bottom: 15px;
+    background-image: linear-gradient(
+      to top,
+      #CCD8BB,
+      #A7B88E,
+      #E5EDD9,
+      #EEF0EB)
   }
 
   .trailcard h3 {
@@ -158,28 +184,37 @@
   }
 
   .trailcard img {
-    width: 200px;
-    max-height: 250px;
+    width: 259px; 
+    height: 280px;
+    object-fit: cover;
   }
 
-  /* .trailcard h5 {
-    width: 100px;
+  .trail-info h5 {
+    width: 150px;
     margin: 10px;
-  } */
+    font-size: 15px;
+  }
+
+  .trail-info p {
+    width: 200px;
+    text-align: center;
+    font-size: 13px;
+  }
 
   .trailcard p {
     width: auto;
     /* padding: 1px; */
     text-align: center;
-    font-size: 12px;
+    font-size: 1px;
   }
 
   .trail-info {
-    margin-top: 22px;
-    /* background-image: url("https://img2.10bestmedia.com/Images/Photos/380636/GettyImages-611102194_54_990x660.jpg"); */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 200px;
     opacity: 0.9;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     /* position: sticky; */
     top: 0;
@@ -187,7 +222,29 @@
     box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
     border-radius: 20px;
     font-weight: 590;
-    font-size: 20px;
+    font-size: 15px;
+    background-image: linear-gradient(
+      to right,
+      #E5EDD9,
+      #EEF0EB,
+      #CCD8BB,
+      #A7B88E)
+  }
+
+  .trail-info img {
+    width: auto;
+    align-items: right;
+    border-radius: 10px;
+    padding-left: 20px;
+    max-height: 220px;
+  }
+
+  .trail-info h3 {
+    width: 150px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+    text-align: center;
   }
 
   .home {
@@ -204,6 +261,13 @@
     border-radius: 20px;
     font-weight: 590;
     font-size: 20px;
+    background-image: linear-gradient(
+      to right,
+      #E5EDD9,
+      #EEF0EB,
+      #CCD8BB,
+      #A7B88E)
+    
   }
 
   .factcontainer {
@@ -212,6 +276,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 10px;
     
     /* width: 100%;
     height: 75vh; */
@@ -220,6 +285,7 @@
   .factcard {
     /* position: relative; */
     display: flex;
+    /* flex: 1 1 200px; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -231,6 +297,12 @@
     /* transition: all 0.3s cubic-bezier(.25, .8, .25, 1); */
     overflow: hidden;
     margin-bottom: 15px;
+    background-image: linear-gradient(
+      to right,
+      #CCD8BB,
+      #A7B88E,
+      #E5EDD9,
+      #EEF0EB)
     
   }
 
@@ -243,8 +315,30 @@
   }
 
   .navLink {
-    width: 50vw;
-    
+    color: white;
+    font-family: Optima;
+    font-size: 22;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    margin: 0;
+    padding: 5px;
+    text-decoration: none;
+    background-image: linear-gradient(
+      to right,
+      #738952,
+      #879B69,
+      #9DAA8D
+     )
+  }
+
+  .navLink.active {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .navLink:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
   .navigation li {
@@ -266,23 +360,25 @@
   .navigation {
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    /* background-image: linear-gradient(
+    margin-top: 10px;
+    padding-top: 18px;
+    background-image: linear-gradient(
       to right,
-      #0ba360,
-      #3cba92,
-      #30dd8a,
-      #2bb673) */
+      #CCD8BB,
+      #A7B88E,
+      #E5EDD9,
+      #EEF0EB)
   
   }
 
 
-  /* .brand-name {
+  .brand-name {
     text-decoration: none;
-    color: rgb(110, 214, 215);
-    font-size: 32px;
+    color: #769051;
+    font-size: 25px;
     margin-left: 1rem;
     font-weight: 700px;
-  }  */
+  } 
 
   .reviewform {
     margin-top: 22px;
@@ -298,6 +394,12 @@
     border-radius: 20px;
     font-weight: 590;
     font-size: 20px;
+    background-image: linear-gradient(
+      to right,
+      #CCD8BB,
+      #A7B88E,
+      #E5EDD9,
+      #EEF0EB)
   }
 
   .editreviewform {
@@ -342,6 +444,12 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 5px;
+    background-image: linear-gradient(
+      to right,
+      #CCD8BB,
+      #A7B88E,
+      #E5EDD9,
+      #EEF0EB)
   }
 
   .reviewcard h5 {
@@ -356,7 +464,8 @@
   }
 
   #submit {
-    color: black;
+    color: white;
+    font-family: Optima;
     font-size: 22;
     width: 80px;
     height: 20px;
@@ -364,7 +473,12 @@
     border-radius: 5px;
     margin: 0;
     padding: 0;
-    background: white;
+    background-image: linear-gradient(
+      to right,
+      #0ba360,
+      #3cba92,
+      #30dd8a,
+      #2bb673)
     /* opacity: 0.8; */
     /* box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15); */
   }
@@ -454,6 +568,7 @@
     margin: 0;
     padding: 2;
     margin-bottom: 2px;
+    text-decoration: none;
     background-image: linear-gradient(
       to right,
       #0ba360,

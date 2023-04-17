@@ -117,10 +117,12 @@ function TrailCard({user}) {
             <h3>{oneTrail.name}</h3>
             <h5>{oneTrail.length} || {oneTrail.difficulty}</h5>
             <p>{oneTrail.description}</p>
+            <img src={oneTrail.image} />
         </div>
         <form className="reviewform" onSubmit={formik.handleSubmit}>
                 <label>Rating: </label>
                 <select name="rating" value={formik.values.rating} onChange={formik.handleChange} >
+                        <option>Rating</option>
                         <option value="5/5">5/5</option>
                         <option value="4/5">4/5</option>
                         <option value="3/5">3/5</option>

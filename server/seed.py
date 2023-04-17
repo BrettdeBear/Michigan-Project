@@ -64,11 +64,11 @@ if __name__ == '__main__':
 
         trails.append(t3)
 
-        t4 = Trail(name='Stoll Memorial Trail', length='4.7 Miles', difficulty='Moderate', description='This trail takes you on a hike through beautiful forests and shoreline.', image='', park_id=2)
+        t4 = Trail(name='Stoll Memorial Trail', length='4.7 Miles', difficulty='Moderate', description='This trail takes you on a hike through beautiful forests and shoreline.', image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROnlGRB7gQXQWa5U7dvPZguWsG05QWK43eNoQoFlxUcVQuZiwIfKMeIgqj4gMRHWGmg8M&usqp=CAU', park_id=2)
 
         trails.append(t4)
 
-        t5 = Trail(name='Tobin Harbor Trail', length='6 Miles', difficulty='Moderate', description='A popular and moderately strenuous trail with outstanding wildlife. If you\'re lucky, you may catch sight of a moose!', park_id=2)
+        t5 = Trail(name='Tobin Harbor Trail', length='6 Miles', difficulty='Moderate', description='A popular and moderately strenuous trail with outstanding wildlife. If you\'re lucky, you may catch sight of a moose!', image='https://www.nps.gov/common/uploads/structured_data/82C9916B-B5D6-4C80-5DF7634BCFDF6238.jpg', park_id=2)
 
         trails.append(t5)
 
