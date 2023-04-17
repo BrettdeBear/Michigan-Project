@@ -24,6 +24,8 @@ class Signup(Resource):
         db.session.add(new_user)
         db.session.commit()
 
+        session['user_id'] = new_user.id
+
         response = make_response(
             new_user.to_dict(),
             201
