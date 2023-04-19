@@ -12,7 +12,8 @@ function Authentication({updateUser}) {
 
     const formSchema = yup.object().shape({
         name: yup.string().required("Please enter a username!"),
-        email: yup.string().email()
+        email: yup.string().email(),
+        password: yup.string().required("Please choose a password!")
     })
 
     const formik = useFormik({
@@ -48,7 +49,7 @@ function Authentication({updateUser}) {
 
     return(
         <div className='loginform'>
-            <h2 style={{color: 'red'}}>{formik.errors.name}<br></br>{formik.errors.email}</h2>
+            <h2 style={{color: 'red'}}>{formik.errors.name}<br></br>{formik.errors.email}<br></br>{formik.errors.password}</h2>
             {error&& <h2 style={{color: 'red'}}>{error}</h2>}
             <h2>Please Log in or Sign up!</h2>
             <h2>{signUp?'Have an account?':'Not a member yet?'}</h2>

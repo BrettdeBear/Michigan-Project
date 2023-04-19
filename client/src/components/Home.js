@@ -23,6 +23,7 @@ function Home() {
     return(
         <div>
             <div className="home">
+                <img src='https://github.com/BrettdeBear/Michigan-Project/blob/main/36B90955-FE73-47B3-ADFC-06D56FB7E5AD_1_105_c.jpeg?raw=true' />
                 <h2>Welcome to Michigan Outdoors</h2>
                 <p>Explore parks and hiking trails all throughout the beautiful state of Michigan.</p>
                 <img src='https://github.com/BrettdeBear/Michigan-Project/blob/main/B371B4F7-4154-4E9D-8A2B-307B838D8399_1_105_c.jpeg?raw=true'/>

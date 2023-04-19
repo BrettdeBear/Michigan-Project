@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -19,14 +19,13 @@ function Nav({updateUser}) {
 
     return (
         <nav className="navigation">
+            
             <ul>
+            <img src='https://github.com/BrettdeBear/Michigan-Project/blob/main/large_michi_outline_1.jpg?raw=true' />
                 <li>
                     <NavLink className="brand-name" exact to='/'>
                         <strong>Michigan Outdoors</strong>
                     </NavLink>
-                    {/* <NavLink className="navLink" exact to="/">
-                        Home
-                    </NavLink> */}
                 </li>
                 <li>
                     <NavLink className='navLink' activeClassName='active' exact to='/'>

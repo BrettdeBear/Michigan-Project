@@ -3,7 +3,6 @@ from sqlalchemy.ext.hybrid import hybrid_property
 
 from config import db, bcrypt
 
-# Models go here!
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
@@ -31,8 +30,6 @@ class User(db.Model, SerializerMixin):
     
 class Park(db.Model, SerializerMixin):
     __tablename__ = 'parks'
-
-    # serialize_rules = ('-trail',)
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)

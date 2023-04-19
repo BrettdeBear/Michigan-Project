@@ -5,8 +5,6 @@ import * as yup from "yup";
 import axios from "axios";
 import EditReview from "./EditReview";
 
-// import AddReview from "./AddReview";
-
 function TrailCard({user}) {
     const [oneTrail, setOneTrail] = useState([])
     const { id } = useParams()
@@ -16,7 +14,6 @@ function TrailCard({user}) {
     const [editMode, setEditMode] = useState(false)
     const history = useHistory()
     const addReview = (review) => setSubmittedReview(current => [review, ...current])
- 
 
     useEffect(() => {
         fetch(`/trails/${id}`)
@@ -59,6 +56,7 @@ function TrailCard({user}) {
                     if(res.ok) {
                         res.json().then(review => {
                             addReview(review)
+                            window.location.reload()
                         })
                     }
                 })
@@ -84,6 +82,7 @@ function TrailCard({user}) {
                         if(res.ok) {
                             res.json().then(review => {
                                 addReview(review)
+                                window.location.reload()
                             })
                         }
                     })
@@ -91,8 +90,6 @@ function TrailCard({user}) {
             }        
         }
     })  
-
-
     
     const trailReviews = reviews.map((reviewObj) => {
 
@@ -120,7 +117,6 @@ function TrailCard({user}) {
                     <p>{reviewObj.text}</p>
                     <img style={{ width: 200 }} src={reviewObj.image}/>
                     {editModeReview}
-                    {/* {editMode ? <EditReview reviews={reviews} setReviews={setReviews} reviewObj={reviewObj} setEditMode={setEditMode} /> : null} */}
                     {editButton}
                     {deleteButton}
                 </div>
@@ -139,6 +135,7 @@ function TrailCard({user}) {
             <img src={oneTrail.image} />
         </div>
         <form className="reviewform" onSubmit={formik.handleSubmit}>
+        <h4 style={{color: 'red'}}>{formik.errors.text}</h4>
                 <label>Rating: </label>
                 <select name="rating" value={formik.values.rating} onChange={formik.handleChange} >
                         <option>Rating</option>

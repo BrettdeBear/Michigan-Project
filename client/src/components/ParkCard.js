@@ -12,12 +12,13 @@ function ParkCard({ parkObj }) {
 
     const buttonText = showDescription ? "Hide Description" : "About the Park"
     const descriptionText = showDescription ? <p>{description}</p> : null
+    const locationText = showDescription ? null : <h3>{location}</h3>
    
     return(
         <div className="parkcard">
             <h2>{name}</h2>
             <br></br><br></br>
-            <h3>{location}</h3>
+            {locationText}
             <img src={image} alt='picture of park' />
             {descriptionText}
             <button id='btn' onClick={handleClick}>{buttonText}</button>

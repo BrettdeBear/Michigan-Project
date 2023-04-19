@@ -6,12 +6,11 @@ import Authentication from "./Authentication";
 import Nav from "./Nav";
 import Home from "./Home";
 import ParksPage from "./ParksPage";
-// import ParkCard from "./ParkCard";
 import OnePark from "./OnePark"
 
 import "../index.css"
 import TrailCard from "./TrailCard";
-import ImageUpload from "./ImageUpload";
+// import ImageUpload from "./ImageUpload";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -54,9 +53,9 @@ function App() {
         <Route path="/authentication">
           <Authentication updateUser={updateUser} />
         </Route>
-        <Route path="/imageupload">
+        {/* <Route path="/imageupload">
           <ImageUpload />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   
