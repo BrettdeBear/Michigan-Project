@@ -26,23 +26,27 @@ function App() {
     })
   }, [])
 
-  const updateUser = (user) => setUser(user)
-  if(!user) return (
-    <>
-      <Nav/>
-      <Authentication updateUser={updateUser}/>
-    </>
-  )
+  //////////// BELOW LOGIC PREVIOUSLY USED FOR ACCESS TO ENTIRE APP ////////////////////
+
+  // const updateUser = (user) => setUser(user)
+  // if(!user) return (
+  //   <>
+  //     <Nav/>
+  //     <Authentication updateUser={updateUser}/>
+  //   </>
+  // )
+
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
   return(
     <div className="App">
-      <Nav updateUser={updateUser} user={user} />
+      <Nav  user={user} />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route path="/parks/:id">
-          <OnePark />
+          <OnePark user={user}/>
         </Route>
         <Route path="/parks" >
           <ParksPage />
@@ -51,7 +55,7 @@ function App() {
           <TrailCard user={user}/>
         </Route>
         <Route path="/authentication">
-          <Authentication updateUser={updateUser} />
+          <Authentication />
         </Route>
         {/* <Route path="/imageupload">
           <ImageUpload />

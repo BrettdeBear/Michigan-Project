@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import EditReview from "./EditReview";
+import Nav from "./Nav";
+import Authentication from "./Authentication";
 
 function TrailCard({user}) {
     const [oneTrail, setOneTrail] = useState([])
@@ -91,6 +93,17 @@ function TrailCard({user}) {
         }
     })  
     
+    /////////////////////// BELOW LOGIC NEEDED FOR AUTHENTICATION ///////////////////////////
+
+    // if(!user) return (
+    //     <>
+    //       <Nav/>
+    //       <Authentication />
+    //     </>
+    //   )
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
     const trailReviews = reviews.map((reviewObj) => {
 
         function handleDelete() {
@@ -126,7 +139,6 @@ function TrailCard({user}) {
      console.log(editMode)
     //  console.log(trailReviews)
     // console.log(oneTrail.id)
-
     return <div>
         <div className="trail-info" key={oneTrail.id}>
             <h3>{oneTrail.name}</h3>

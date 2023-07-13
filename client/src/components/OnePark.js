@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-function OnePark() {
+function OnePark({user}) {
     const [onePark, setOnePark] = useState([])
     const { id } = useParams()
 
@@ -22,7 +22,7 @@ function OnePark() {
                 <h5>{trailObj.length} || {trailObj.difficulty}</h5>
                 <img src={trailObj.image} />
                 <p>{trailObj.description}</p>
-                <Link id='link' to={`/trails/${trailObj.id}`}>View Trail</Link>
+                {user ? <Link id='link' to={`/trails/${trailObj.id}`}>View Trail</Link> : <Link id='link' to={'/authentication'}>Log in to View</Link>}
             </div>
         )
     })
